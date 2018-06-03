@@ -1,2 +1,42 @@
-<h1>Home#show</h1>
-<p>Find me in app/views/home/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Show Page</title>
+
+    <script src="//maps.google.com/maps/api/js?key=AIzaSyB8XnxZr6WHdOqtFNO5jS54IFwXoEgHPLg"></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Home#show</h1>
+    <p>Find me in app/views/home/show.html.erb</p>
+
+    <div style='width: 800px;'>
+      <div id="map" style='width: 800px; height: 400px;'></div>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+       handler = Gmaps.build('Google');
+       // var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+       markers = handler.addMarkers(
+          <%=raw @hash.to_json %>
+       );
+
+       handler.bounds.extendWith(markers);
+       handler.fitMapToBounds();
+       });
+    </script>
+  </body>
+
+  <form action = '/home/create' method = 'post'>
+    <p>Address</p>
+    <input name = 'input_address' type='text'>
+
+    <button class="btn btn-primary" type = "submit"> Submit </button>
+  </form>
+
+</html>
