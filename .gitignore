@@ -19,5 +19,9 @@
 
 /node_modules
 /yarn-error.log
+.DS_Store*
 
 .byebug_history
+/config/initializers/omniauth.rb
+/app.yaml
+/config/database.yml
