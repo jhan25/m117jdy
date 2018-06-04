@@ -33,7 +33,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem "serviceworker-rails"
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "omniauth-google-oauth2"
