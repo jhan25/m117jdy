@@ -25,9 +25,7 @@ class HomeController < ApplicationController
   def create
      @post = Post.new
      @post.address = params[:input_address]
-
      @post.save
-
-     redirect_to root_path
+     redirect_to home_show_path
   end
 end
