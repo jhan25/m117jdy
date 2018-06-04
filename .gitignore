@@ -24,4 +24,3 @@
 .byebug_history
 /config/initializers/omniauth.rb
 /app.yaml
-/config/database.yml
