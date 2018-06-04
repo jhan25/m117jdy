@@ -12,23 +12,34 @@
     <p>Find me in app/views/home/show.html.erb</p>
 
     <div style='width: 800px;'>
-      <div id="map" style='width: 800px; height: 400px;'></div>
-    </div>
+       <div id="geolocation" style='width: 800px; height: 400px;'></div>
+     </div>
 
 
 
     <script type="text/javascript">
 
-       handler = Gmaps.build('Google');
-       // var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-       markers = handler.addMarkers(
+    handler = Gmaps.build('Google');
+    // var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      if(navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(displayOnMap);
+        markers = handler.addMarkers(
           <%=raw @hash.to_json %>
-       );
+        );
 
-       handler.bounds.extendWith(markers);
-       handler.fitMapToBounds();
-       });
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  });
+  handler.map.centerOn(marker);
+};
     </script>
   </body>
 

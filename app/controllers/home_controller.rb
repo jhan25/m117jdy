@@ -7,7 +7,8 @@ class HomeController < ApplicationController
         marker.lng posts.longitude
       end
     end
-  end
+
+end
 
   def new
     @posts = Post.all
