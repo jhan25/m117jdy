@@ -23,10 +23,11 @@
 
        <div id="map"></div>
 
-    
+
 
 
     <script type="text/javascript">
+
     var markers
     var marker
     function displayOnMap(position){
@@ -58,12 +59,58 @@
     function closesigninDiv(){
     document.getElementById("signindiv").style.display=" none";
     }
-
     </script>
 
     <% @posts.each do |p| %>
       <%= link_to p.address, home_arrive_path(:post_id => p.id) %>
     <% end %>
+
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+
+    <script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        var r = 6371;
+        var lat1 = position.coords.latitude;
+        var lng1 = position.coords.longitude;
+        <% @posts.each do |p| %>
+             var lat2 = <%= p.latitude %>
+             var lng2 = <%= p.longitude %>
+        <% end %>
+        var lt1 = lat1* Math.PI / 180;
+        var lt2 = lat2* Math.PI / 180;
+        var lat_delta = (lat2-lat1) * Math.PI / 180;
+        var lng_delta = (lng2-lng1) * Math.PI / 180;
+
+        var a = Math.sin(lat_delta/2) * Math.sin(lat_delta/2) +
+        Math.cos(lt1) * Math.cos(lt2) *
+        Math.sin(lng_delta/2) * Math.sin(lng_delta/2);
+
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+
+
+        x.innerHTML = c * r;
+    }
+    </script>
+
+    <!-- <button onclick="getLocation()">Try It</button>
+    <p id="demo"></p> -->
+
+
   </body>
 
 
