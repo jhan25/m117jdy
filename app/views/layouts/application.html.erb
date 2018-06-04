@@ -5,13 +5,12 @@
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-  <link rel="manifest" href="/manifest.json" />
-<meta name="apple-mobile-web-app-capable" content="yes"></head>
+</head>
   <body>
     <div>
       <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <div id="signindiv">  Welcome, <strong><%= current_user.name %></strong>!</div>
+
       <% else %>
         <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
       <% end %>
@@ -19,5 +18,7 @@
     <div>
     <%= yield %>
     </div>
+
+
   </body>
 </html>

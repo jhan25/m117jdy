@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
 
-  root to: "home#show"
+  root to: "home#landing"
   get 'home/show'
+  get 'home/landing'
   get '/home/new' => 'home#new'
   # get '/home/create'
   post '/home/create' => 'home#create'
