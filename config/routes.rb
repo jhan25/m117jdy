@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   root to: "home#landing"
   get 'home/show'
+  get 'home/arrive'
   get 'home/landing'
   get '/home/new' => 'home#new'
   # get '/home/create'

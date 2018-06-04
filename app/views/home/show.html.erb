@@ -11,8 +11,13 @@
     <form action = '/home/create' method = 'post'>
       <div style="display:flex; ">
       <%= link_to "", signout_path, id: "sign_out", class: "signoutbtn"%>
-      <input style = "padding: 1px 0px 0px 12px; height: 40px; margin-top: 1.5px; margin-bottom:3px; width: 100%; font-size: 26.5px; font-family: sans-serif;" name = 'input_address' type='text' placeholder="Search Your Destination."required>
-      <button class = "searchbutton" type = "submit"></button>
+      <% if @posts.empty? %>
+        <input style = "padding: 1px 0px 0px 12px; height: 40px; margin-top: 1.5px; margin-bottom:3px; width: 100%; font-size: 26.5px; font-family: sans-serif;" name = 'input_address' type='text' placeholder="Search Your Destination."required>
+        <button class = "searchbutton" type = "submit"></button>
+      <% else %>
+<text style = "padding: 1px 0px 0px 12px; height: 40px; margin-top: 1.5px; margin-bottom:3px; width: 100%; font-size: 26.5px; font-family: sans-serif;">
+  Your Destination is <%= @posts.first.address%>. </text>
+      <%end%>
 </div>
     </form>
 
@@ -54,9 +59,13 @@
     function closesigninDiv(){
     document.getElementById("signindiv").style.display=" none";
     }
-    </script>
-  </body>
 
+    </script>
+
+    <% @posts.each do |p| %>
+      <%= link_to p.address, home_arrive_path(:post_id => p.id) %>
+    <% end %>
+  </body>
 
 
 </html>

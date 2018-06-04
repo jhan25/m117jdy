@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20180603072823) do
     t.text "address"
     t.float "latitude"
     t.float "longitude"
+    t.boolean "arrive"
+    t.integer "pid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
