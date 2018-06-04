@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   end
   def new
     @posts = Post.all
-    redirect_to home_show_path
+    redirect_to root_path
   end
 
   def create

@@ -1,3 +1,40 @@
+/* line 4, /Users/yoong/CodenDesign/test/apptest/app/assets/stylesheets/home.scss */
+.signinbtn {
+  display: block;
+  width: 400px;
+  height: 100px;
+  background-image: url("https://i.imgur.com/GagMr90.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* line 15, /Users/yoong/CodenDesign/test/apptest/app/assets/stylesheets/home.scss */
+.sibox {
+  position: absolute;
+  width: 100%;
+  left: -10%;
+  margin-top: 20px;
+}
+
+/* line 21, /Users/yoong/CodenDesign/test/apptest/app/assets/stylesheets/home.scss */
+.lpfs {
+  margin-top: auto;
+  position: absolute;
+  left: 5%;
+  bottom: 30%;
+  width: 100px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 150px;
+  color: white;
+  line-height: 130px;
+}
+
+/* line 34, /Users/yoong/CodenDesign/test/apptest/app/assets/stylesheets/home.scss */
+.lpbd {
+  border: solid;
+  width: 100%;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -10,9 +47,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
  html, body
  {
      height: 100%;

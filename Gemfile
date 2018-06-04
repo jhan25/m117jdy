@@ -36,6 +36,8 @@ gem "serviceworker-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "omniauth-google-oauth2"
+# Added at 2017-08-07 11:54:06 -0700 by USER:
+gem "mysql2", "~> 0.4.8"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +45,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
 end
 
 group :development do
@@ -57,3 +60,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Added at 2018-06-04 12:27:53 -0700 by yoong:
+gem "appengine", "~> 0.4.5"
