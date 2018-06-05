@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <!-- <meta http-equiv="refresh" content="5"> -->
+</head>
+<body>
+  <h1>You have arrived!<h2>
+
+  <audio id="abc" src="<%= audio_path '/audio/alarm.mp3' %>" type="audio/mpeg" autoplay>
+    Your browser does not support audio element.
+  </audio>
+
+  <button onclick="okay()" type="button">Okay</button>
+
+  <script>
+    var x = document.getElementById("abc");
+
+    function okay() {
+        x.pause();
+        x.currentTime = 0;
+        window.location.href = "/home/show";
+    }
+  </script>
+</body>
+</html>

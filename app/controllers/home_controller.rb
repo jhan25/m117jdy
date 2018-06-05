@@ -34,9 +34,8 @@ class HomeController < ApplicationController
      redirect_to home_show_path
   end
   def arrive
-    @post = Post.find(params[:post_id])
+    @post = Post.find(session[:pid])
     @post.arrive = true
     @post.save
-    redirect_to home_show_path
   end
 end

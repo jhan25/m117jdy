@@ -24,6 +24,12 @@
     <%= yield %>
     </div>
 
+        <script type="text/javascript">
+        window.setTimeout("closesigninDiv();", 3000);
+        function closesigninDiv(){
+        document.getElementById("signindiv").style.display=" none";
+        }
+        </script>
 
   </body>
 </html>

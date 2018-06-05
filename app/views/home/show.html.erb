@@ -54,17 +54,11 @@
     });
     </script>
 
-    <script type="text/javascript">
-    window.setTimeout("closesigninDiv();", 3000);
-    function closesigninDiv(){
-    document.getElementById("signindiv").style.display=" none";
-    }
-    </script>
 
     <% @posts.each do |p| %>
       <%= link_to p.address, home_arrive_path(:post_id => p.id) %>
-    <% end %>
-
+      <% session[:pid] = p.id %>
+      <% end %>
     <p>Click the button to get your coordinates.</p>
 
     <button onclick="getLocation()">Try It</button>
@@ -72,6 +66,9 @@
     <p id="demo"></p>
 
     <script>
+
+    window.setInterval(getLocation, 1000);
+
     var x = document.getElementById("demo");
 
     function getLocation() {
@@ -101,12 +98,15 @@
 
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
+      console.log("ha");
 
+        x.innerHTML = c * r * 1000;
+        if ((c*r*1000)< 500){
+          window.location.href = "/home/arrive"
+        }
 
-        x.innerHTML = c * r;
     }
     </script>
-
     <!-- <button onclick="getLocation()">Try It</button>
     <p id="demo"></p> -->
 
