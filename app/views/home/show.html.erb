@@ -58,16 +58,14 @@
     <% @posts.each do |p| %>
       <%= link_to p.address, home_arrive_path(:post_id => p.id) %>
       <% session[:pid] = p.id %>
-      <% end %>
-    <p>Click the button to get your coordinates.</p>
+      "This is link to incur alarm manually, this is only test purpose."
 
-    <button onclick="getLocation()">Try It</button>
-
+    <% end %>
     <p id="demo"></p>
 
     <script>
 
-    window.setInterval(getLocation, 1000);
+    window.setInterval(getLocation, 6000);
 
     var x = document.getElementById("demo");
 
@@ -101,7 +99,7 @@
       console.log("ha");
 
         x.innerHTML = c * r * 1000;
-        if ((c*r*1000)< 500){
+        if (c * r * 1000 < 500){
           window.location.href = "/home/arrive"
         }
 
